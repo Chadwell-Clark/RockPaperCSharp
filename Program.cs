@@ -13,10 +13,12 @@ void Game()
     if (player == 3)
     {
         Console.WriteLine("You Win!");
+        PlayAgain();
     }
     else if (computer == 3)
     {
         Console.WriteLine("You lose. Computer Wins!");
+        PlayAgain();
     }
 
 
@@ -33,7 +35,7 @@ void Game()
     string playInputString = Console.ReadLine();
     if (String.IsNullOrEmpty(playInputString))
     {
-
+        Game();
     }
     int playInputInt = Int32.Parse(playInputString);
 
@@ -111,7 +113,22 @@ void Game()
 
 }
 
-
+void PlayAgain()
+{
+    Console.WriteLine();
+    Console.Write("Play again? y or n :");
+    string play = Console.ReadLine();
+    if (play.ToLower() != "y")
+    {
+        Environment.Exit(0);
+    }
+    else
+    {
+        player = 0;
+        computer = 0;
+        Game();
+    }
+}
 
 //Rock
 void Rock()
